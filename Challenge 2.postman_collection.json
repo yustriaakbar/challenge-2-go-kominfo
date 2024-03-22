@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "72859919-cc4a-4e87-8583-0b1e0634cda2",
+		"name": "Challenge 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3095924"
+	},
+	"item": [
+		{
+			"name": "Get Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Orders",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Mar 2024 08:32:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "173"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"orderId\": 3,\n        \"customerName\": \"Tom Jerry\",\n        \"orderedAt\": \"2019-11-09T21:21:46Z\",\n        \"items\": [\n            {\n                \"lineItemId\": 5,\n                \"orderId\": 3,\n                \"itemCode\": \"123\",\n                \"description\": \"Iphone 10x\",\n                \"quantity\": 1\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Store Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderedAt\":\"2019-11-09T21:21:46+00:00\",\r\n    \"customerName\":\"Tom Jerry\",\r\n    \"items\":[\r\n\t    {\r\n\t\t    \"itemCode\":\"123\",\r\n\t\t    \"description\":\"Iphone 10x\",\r\n\t\t    \"quantity\":1\r\n\t    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Store Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderedAt\":\"2019-11-09T21:21:46+00:00\",\r\n    \"customerName\":\"Tom Jerry\",\r\n    \"items\":[\r\n\t    {\r\n\t\t    \"itemCode\":\"123\",\r\n\t\t    \"description\":\"Iphone 10x\",\r\n\t\t    \"quantity\":1\r\n\t    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 22 Mar 2024 08:32:09 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Order created successfully"
+				}
+			]
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/orders/2",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"orders",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Order",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/orders/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 22 Mar 2024 08:31:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Order deleted successfully"
+				}
+			]
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderedAt\":\"2019-11-09T21:21:46+00:00\",\r\n    \"customerName\":\"Tom Jerry 2\",\r\n    \"items\":[\r\n        {\r\n            \"lineItemId\":1,\r\n            \"itemCode\":\"123\",\r\n            \"description\":\"Iphone 10x\",\r\n            \"quantity\":1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
